@@ -1,0 +1,39 @@
+---
+import Presentacion from "../components/Presentacion.astro";
+import Mid from "../components/Mid.astro";
+import SobreMi from "../components/SobreMi.astro";
+import Skills from "../components/Skills.astro";
+import Proyectos from "../components/Proyectos.astro";
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="/src/styles/global.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Unica+One&display=swap" rel="stylesheet">
+		<title>Astro Basics</title>
+	</head>
+	<body class="w-full h-full">
+		<Presentacion />
+		<slot />
+		<Mid />
+		<SobreMi />
+		<Skills />
+		<Proyectos />
+		<ContactForm />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		font-family: 'Unica One', sans-serif;	
+	}
+</style>

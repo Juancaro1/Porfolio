@@ -1,0 +1,95 @@
+<section class="bg-custom-gradient py-10 px-4 sm:py-0 sm:px-16 w-[1050px] sm:w-full">
+  <div class="flex flex-col sm:flex-row items-center sm:items-start">
+    <!-- Texto principal -->
+    <div class="text-center sm:text-left sm:pl-48 sm:pt-20">
+      <h1 class="uppercase text-[40px] sm:text-[56px] text-white">
+        ¿Quieres preguntar algo?
+      </h1>
+      <h2 class="text-[20px] sm:text-[30px] uppercase mt-6 sm:mt-10 text-white">
+        Deja tu mensaje, pregunta o si quieres un saludo incluso
+      </h2>
+    </div>
+    
+    <!-- Formulario -->
+    <div class="w-full sm:w-[700px] mt-10 sm:mt-0 sm:ml-20">
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/xwpvelkp"
+        method="POST"
+        class="flex flex-col gap-4 max-w-full p-4 sm:p-10"
+      >
+        <label for="name" class="text-lg sm:text-[30px] font-medium text-white">Tu Nombre</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          class="border border-gray-300 rounded-md p-2"
+          placeholder="Ingresa tu nombre"
+          required
+        />
+
+        <label for="email" class="text-lg sm:text-[30px] font-medium text-white">Tu Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="border border-gray-300 rounded-md p-2"
+          placeholder="Ingresa tu correo electrónico"
+          required
+        />
+
+        <label for="message" class="text-lg sm:text-[30px] font-medium text-white">Tu Mensaje</label>
+        <textarea
+          name="message"
+          id="message"
+          class="border border-gray-300 rounded-md p-2 h-32"
+          placeholder="Escribe tu mensaje"
+          required
+        ></textarea>
+
+        <button
+          type="submit"
+          class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 sm:text-[20px]"
+        >
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  
+  <script>
+    const form = document.getElementById('contactForm');
+
+if (form instanceof HTMLFormElement) {
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir la recarga de la página
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        // Mostrar un mensaje de éxito
+        alert('¡Tu mensaje ha sido enviado con éxito!');
+        form.reset(); // Limpiar los campos del formulario
+      } else {
+        alert('Ocurrió un error al enviar el mensaje.');
+      }
+    })
+    .catch(() => {
+      alert('Ocurrió un error al enviar el mensaje.');
+    });
+  });
+} else {
+  console.error('El formulario no fue encontrado o no es un formulario válido.');
+}
+  </script>
+  
